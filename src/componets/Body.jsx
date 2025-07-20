@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import axios from "axios";
 import { BASE_URL } from "../utils/contants";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../store/userSlice";
 
 const Body = () => {
   const Navigate = useNavigate();

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/contants";
 
@@ -19,16 +19,12 @@ const Login = () => {
           emailId,
           password,
         },
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
-      console.log(response.data);
       dispatch(addUser(response.data));
       return navigate("/");
     } catch (err) {
-      setError(err.response.data);
-      console.log(err.response.data);
+      setError(err?.response?.data);
     }
   };
   return (
