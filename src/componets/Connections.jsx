@@ -6,7 +6,6 @@ import { addConnections } from "../store/connectionSlice";
 const Connections = () => {
   const dispatch = useDispatch();
   const connection = useSelector((store) => store.Connection);
-  console.log(connection);
   const fetchData = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/requests/connections", {
@@ -20,7 +19,9 @@ const Connections = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  if (!connection) return;
+  if (!connection || connection?.length <= 0)
+    return <h1 className="flex justify-center my-10">No connections Found</h1>;
+
   return (
     <div className="text-center my-10">
       <h1 className="text-bold text-2xl">Connections</h1>

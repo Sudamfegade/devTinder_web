@@ -6,11 +6,32 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/contants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("sf@gmail.com");
-  const [password, setpass] = useState("Sudam@2002");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [emailId, setEmailId] = useState("");
+  const [password, setpass] = useState("");
   const [err, setError] = useState("");
+  const [isLogin, setIsLogin] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const handleSignup = async () => {
+    try {
+      const response = await axios.post(
+        BASE_URL + "/signup",
+        {
+          firstName,
+          lastName,
+          emailId,
+          password,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(response.data));
+      return navigate("/profile");
+    } catch (err) {
+      setError(err?.response?.data);
+    }
+  };
   const handleLogin = async () => {
     try {
       const response = await axios.post(
@@ -32,7 +53,35 @@ const Login = () => {
       <div className="flex justify-center my-10">
         <div className="card bg-base-300 w-96 shadow-lg">
           <div className="card-body">
-            <h2 className="card-title justify-center">Login</h2>
+            <h2 className="card-title justify-center">
+              {isLogin ? "Login" : "SignUp"}
+            </h2>
+            {!isLogin && (
+              <>
+                <div>
+                  <label className="input validator">
+                    <input
+                      type="text"
+                      value={firstName}
+                      placeholder="Name"
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label className="input validator">
+                    <input
+                      type="text"
+                      value={lastName}
+                      placeholder="Name"
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+              </>
+            )}
             <div>
               <label className="input validator">
                 <svg
@@ -104,10 +153,21 @@ const Login = () => {
             </p>
             <p className="text-red-500">{err}</p>
             <div className="card-actions justify-center">
-              <button className="btn btn-primary" onClick={handleLogin}>
-                Login
+              <button
+                className="btn btn-primary"
+                onClick={isLogin ? handleLogin : handleSignup}
+              >
+                {isLogin ? "Login" : "Sign Up"}
               </button>
             </div>
+            <p
+              className="cursor-pointer m-auto p-4"
+              onClick={() => setIsLogin(!isLogin)}
+            >
+              {isLogin
+                ? "New User? Signup here"
+                : "User already exist ? Login here"}
+            </p>
           </div>
         </div>
       </div>
