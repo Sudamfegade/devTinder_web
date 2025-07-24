@@ -9,8 +9,11 @@ DevTinder is a developer networking platform where tech enthusiasts can connect,
 ✨ Features
 
 ✅ JWT & Cookie-based Authentication – Secure login and signup.
+
 ✅ Swipeable Feed – Browse developer profiles and connect.
+
 ✅ Connection Requests – Accept/reject connection requests easily.
+
 ✅ Profile Management – Edit and update your profile details.
 
 🛠 Tech Stack
@@ -23,7 +26,9 @@ Authentication: JWT & Cookies
 
 devtinder/
 │── frontend/    # Frontend (React, JavaScript, Redux tool kit, Tailwind CSS, DaisyUi)
+
 │── backend/     # Backend (Node.js, Express, MongoDB, JavaScript, Socket.io)
+
 │── README.md    # Documentation
 🏗️ Setup & Installation
 
