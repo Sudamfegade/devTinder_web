@@ -1,12 +1,35 @@
-# React + Vite
+🚀 DevTinder – Connect with Developers Like Never Before!
+🔥 Overview
+DevTinder is a developer networking platform where tech enthusiasts can connect, chat, and collaborate based on mutual interest. Inspired by Tinder, it lets users swipe left to ignore and right to connect, with real-time chat features powered by Socket.io.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Demo: https://sudamfegade.duckdns.org 
+✨ Features
+✅ JWT & Cookie-based Authentication – Secure login and signup.
+✅ Swipeable Feed – Browse developer profiles and connect.
+✅ Connection Requests – Accept/reject connection requests easily.
+✅ Profile Management – Edit and update your profile details.
 
-Currently, two official plugins are available:
+🛠 Tech Stack
+Frontend: React.js, TypeScript, Zustand, Tailwind CSS, DaisyUi
+Backend: Node.js, Express.js, MongoDB, TypeScript, Socket.io
+Authentication: JWT & Cookies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📂 Project Structure
+devtinder/
+│── frontend/    # Frontend (React, JavaScript, Redux tool kit, Tailwind CSS, DaisyUi)
+│── backend/     # Backend (Node.js, Express, MongoDB, JavaScript, Socket.io)
+│── README.md    # Documentation
+🏗️ Setup & Installation
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2️⃣ Install dependencies
+Frontend
+cd frontend
+npm install
+npm run dev
+Backend
+cd backend
+npm install
+npm run dev
+3️⃣ Setup environment variables
+Create a .env file in both frontend and backend folders.
+Add necessary environment variables as per the .env.example.
